@@ -1,0 +1,6 @@
+.survey {
+    grid-area: survey;
+    background-color: white;
+    border-right: 1px solid white;
+    box-shadow: 0 -7px 5px 0 rgb(170, 170, 170);
+}
