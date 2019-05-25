@@ -1,0 +1,249 @@
+.questionbar {
+    grid-area: questionbar;
+    width: 100%;
+}
+
+.questionbar .questionCard {
+    box-shadow: 0 -7px 5px 0 lightgray;
+    background-color: white;
+    height: 250px;
+    margin-bottom: 30px;
+}
+
+/* ////////////////////////////////////////////////////// */
+
+.header, .questionText, .option, .ansverChoice, .footer {
+    line-height: 50px;
+    max-width: 100%;
+    height: 50px;
+    border-bottom: 1px solid rgb(223, 228, 229);
+}
+
+.option, .ansverChoice {
+    height: 30px;
+    line-height: 30px;
+    margin-left: 25px;
+}
+
+.isNoValue {
+    border-bottom: 1px solid red;
+}
+
+input[type="text"]::-webkit-input-placeholder {
+    color: lightgray;
+}
+
+input[type="text"]::-moz-placeholder {
+    color: lightgray;
+}
+
+input, button {
+    outline: none;
+}
+
+input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+    margin: 0 0 0 0;
+}
+
+/* ////////////////////////////////////////////////////// */
+
+.header .cardNumber, .header .text, .headerBtn {
+    margin-left: 10px;
+    margin-right: 10px;
+    vertical-align: middle;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+}
+
+.header .cardNumber {
+    width: 30px;
+    border-radius: 50%;
+    background-color: rgb(235, 231, 231);
+    text-align: center;
+    font-size: x-large;
+}
+
+.header .text {
+    width: 220px;
+    background-color: white;
+    border: 1px solid rgb(223, 228, 229);
+    border-radius: 5px;
+    font-size: larger;
+    text-overflow: ellipsis;
+    padding-left: 5px;
+}
+
+.header .headerBtn {
+    width: 80px;
+    background-color: rgb(32, 64, 111);
+    color: white;
+    border-radius: 5px;
+    line-height: 0;
+}
+
+/* ////////////////////////////////////////////////////// */
+
+.questionText {
+    height: 60px;
+    line-height: 60px;
+    margin-left: 25px;
+}
+
+.questionText .text {
+    height: 35px;
+    width: 260px;
+    background-color: white;
+    line-height: 35px;
+    border: 1px solid rgb(223, 228, 229);
+    border-radius: 5px;
+    font-size: larger;
+    text-overflow: ellipsis;
+    padding-left: 5px;
+    margin: 5px 0 0 0;
+    outline: none;
+}
+
+/* ////////////////////////////////////////////////////// */
+
+.option .dots, .option .check, .option .text, .option label {
+    margin-left: 10px;
+    margin-right: 10px;
+    vertical-align: middle;
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+}
+
+.option .dots {
+    height: 30px;
+    line-height: 30px;
+    font-size: xx-large;
+    font-weight: bold;
+    color: lightgray;
+}
+
+.option .text {
+    float: right;
+    margin-right: 0;
+    margin-left: 0;
+    vertical-align: middle;
+}
+
+.option .text input {
+    float: right;
+    height: 20px;
+    width: 250px;
+    background-color: white;
+    line-height: 20px;
+    border: 1px solid rgb(223, 228, 229);
+    border-radius: 5px;
+    font-size: medium;
+    text-overflow: ellipsis;
+    padding-left: 5px;
+    outline: none;
+    border: none;
+}
+
+.option .text label {
+    line-height: 20px;
+}
+
+/* ////////////////////////////////////////////////////// */
+
+.ansverChoice {
+    border-bottom: none;
+}
+
+/* ////////////////////////////////////////////////////// */
+
+.option, .ansverChoice {
+    height: 30px;
+    line-height: 30px;
+    margin-left: 25px;
+}
+
+.isNoValue {
+    border-bottom: 1px solid red;
+}
+
+input[type="text"]::-webkit-input-placeholder {
+    color: lightgray;
+}
+
+input[type="text"]::-moz-placeholder {
+    color: lightgray;
+}
+
+input, button {
+    outline: none;
+}
+
+input[type='checkbox'] {
+    width: 20px;
+    height: 20px;
+    margin: 0 0 0 0;
+}
+
+/* .questionbar .questionCard .header .numOfCard, .headerText, .logickBtn {
+    height: 30px;
+    display: inline-block;
+    white-space: nowrap;
+    
+}
+
+.questionbar .questionCard .header .headerText {
+    width: 200px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.questionbar .questionCard .header .headerText textarea {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    line-height: 100%;
+    
+}
+
+.questionbar .questionCard .header div {
+    border: 1px solid lightgray;
+    
+}
+
+.questionbar .questionCard .header .logickBtn {
+    width: 80px;
+    margin-left: 50px;
+}
+
+.questionbar .questionCard .header .logickBtn button {
+    width: 100%;
+    height: 100%;
+}
+
+.questionbar .questionCard .header .numOfCard {
+    width: 30px;
+    border-radius: 50%;
+    background-color: rgb(235, 231, 231);
+    text-align: center;
+    
+    line-height: 30px;
+   
+}
+
+.questionbar .questionCard .questionText textarea {
+    text-overflow: ellipsis;
+    
+    resize: none;
+    overflow: hidden;
+}
+
+
+
+.option input {
+    width: 20px;
+    height: 20px;
+} */
