@@ -1,4 +1,4 @@
-const SET_QUESTIONS = 'SET_QUESTIONS';
+const ADD_QUESTION = 'ADD_QUESTION';
 const UPDATE_QUESTION_TITLE = 'UPDATE_QUESTION_TITLE'
 const UPDATE_QUESTION_DESCRIPTION = 'UPDATE_QUESTION_DESCRIPTION'
 const UPDATE_QUESTION_OPTION = 'UPDATE_QUESTION_OPTION'
@@ -11,25 +11,42 @@ let initialState = {
             questionDescription: '',
             questionOption: '',
         },
-
         {
             id: 2,
             questionTitle: '',
             questionDescription: '',
             questionOption: '',
         },
+        {
+            id: 3,
+            questionTitle: '',
+            questionDescription: '',
+            questionOption: '',
+        },
     ],
 
-    isQuestionHere: false,
+    questionQuantity: 3,
+    isNoValue: true
+
 };
 
 const questionCardReducer = (state = initialState, action) => {
+    
     switch (action.type) {
-        case SET_QUESTIONS:
+        case ADD_QUESTION:
+            let QuestionId = state.questionQuantity + 1;
             return {
                 ...state,
-                questions: action.questions,                
-                isQuestionHere: true,
+                questions: [
+                    ...state.questions,
+                    {
+                        id: QuestionId,
+                        questionTitle: '',
+                        questionDescription: '',
+                        questionOption: '',
+                    }
+                ],
+                questionQuantity: QuestionId
             }
         case UPDATE_QUESTION_TITLE:
             return {
@@ -63,10 +80,9 @@ const questionCardReducer = (state = initialState, action) => {
     }
 };
 
-export const setQuestionsAC =
-    (questions) => ({ type: SET_QUESTIONS, questions })
+export const AddQuestionAC = () => ({ type: ADD_QUESTION })
 
-export const updateQuestionTitleAC =
+export const updateQuestionTitleAC = 
     (questionId, questionTitle) => ({ type: UPDATE_QUESTION_TITLE, questionId, questionTitle })
 
 export const updateQuestionDescriptionAC =

@@ -3,63 +3,24 @@
     background-color: white;
     display: grid;
     grid-template-columns: 0.8fr 4.2fr;
-    box-shadow: 0 -7px 5px 0 lightgray;
-}
-
-.sidebar .nav {
-    border-right: 1px solid rgb(223, 228, 229);
-    text-align: center;
-}
-
-.sidebar .navItem, .todoItem {
-    max-width: 100%;
-    height: 50px;
-}
-
-.sidebar .nav .navItem {
-    position: relative;
-}
-
-.sidebar .nav .navItem:hover {
-    box-shadow: inset 3px 3px 2px 0 lightblue, inset -3px -3px 2px 0 lightblue;
+    border-top: 6px solid lightgray;
+    border-radius: 6px 6px 0 0;
     
 }
 
-.sidebar .nav .navItem a {
-    color: white;
-    text-decoration: none;
-}
-
-.sidebar .nav .navItem .activeLink {
-    color: green;
-}
-
-.sidebar .nav .navItem img {
-    width: 30px;
-    height: 30px;
-    margin: auto;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+.sidebar .nav {
+    /* box-sizing: border-box; */
+    border-right: 1px solid rgb(223, 228, 229);
     text-align: center;
+    
 }
 
-.sidebar .todo .todoItem, .todoItems {
+.sidebar .todo .todoItems {
+    box-sizing: border-box;
     height: 50px;
     line-height: 50px;
     padding-left: 20px;
     border-bottom: 1px solid rgb(223, 228, 229);
-}
-
-.sidebar .todo .todoItem:hover {
-    box-shadow: inset 3px 3px 2px 0 lightblue, inset -3px -3px 2px 0 lightblue;
-    cursor: cell;
-   
-}
-
-.sidebar .todo .todoItems span {
     font-size: larger;
     font-weight: bold;
 }

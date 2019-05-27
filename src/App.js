@@ -1,20 +1,19 @@
 import React from 'react';
-import './App.css';
-import Survey from './components/Survey/Survey';
-import QuestionCard from './components/Questionbar/QuestionCard';
+import common_s from './App.module.css';
 import SidebarContainer from './components/Sidebar/SidebarContainer';
 import SurveyContainer from './components/Survey/SurveyContainer';
 import QuestionCardContainer from './components/Questionbar/QuestionCardContainer';
+import HTML5Backend from 'react-dnd-html5-backend'
+import { DragDropContext } from 'react-dnd'
 
 
-function App() {
-  return (
-    <div className='app-wrapper'>
-      <SidebarContainer />
-      <SurveyContainer />
-      <QuestionCardContainer />
-    </div>
-    
+const App = () => {
+  return (    
+      <div className={common_s.app_wrapper}>
+        <SidebarContainer />
+        <SurveyContainer />
+        <QuestionCardContainer />      
+    </div>   
   );
 }
 

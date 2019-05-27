@@ -1,68 +1,75 @@
 import React from 'react';
+import common_s from '../../App.module.css'
 import s from './QuestionCard.module.css'
 
 const QuestionCard = (props) => {
-    let isNoValue = true;
+
+    let inputStyle = value => !value ? common_s.common_inputs_style + ' ' + common_s.empty_input :
+                                       common_s.common_inputs_style
+
+
+    let lableStyle = value => !value ? s.cardNumber + ' ' + common_s.empty_input_number : s.cardNumber
+
     let questionCard = props.questions.map(q =>
-        <div className={s.questionCard}>
-            <div className={s.header}>
-                <div className={s.cardNumber}>
-                    <span>{q.id}</span>
-                </div>
-                <input
-                    type='text'
-                    className={isNoValue ? s.text + ' ' + s.isNoValue : s.text}
-                    placeholder='Set header text'
-                    onChange={(e) => { props.updateQuestionTitle(q.id, e.target.value) }}
-                    value={q.questionTitle}
-                >
-                </input>
-                <button className={s.headerBtn}>Logic</button>
-            </div>
+            <div className={s.questionCard}>
 
-            <div className={s.questionText}>
-                <input
-                    type='text'
-                    className={s.text}
-                    placeholder='No question yet, click here to add'
-                    onChange={(e) => { props.updateQuestionDescription(q.id, e.target.value) }}
-                    value={q.questionDescription}
-                >                   
-                </input>
-            </div>
-
-            <div className={s.option}>
-                <div className={s.dots}>⋮⋮</div>
-                <div className={s.check}><input type='checkbox'></input></div>
-                <div className={s.text}>
-                    <label for='text'>r1</label>
+                {/* ////////////HEADER///////////////////// */}
+                <div className={s.header}>
+                    <div className={lableStyle(q.questionTitle)}>
+                        <span>{q.id}</span>
+                    </div>
                     <input
-                    type='text'
-                    className={s.optionHolder + ' ' + s.isNoValue}
-                    placeholder='Enter option'
-                    onChange={(e) => { props.updateQuestionOption(q.id, e.target.value) }}
-                    value={q.questionOption}
-                    >                        
+                        type='text'
+                        className={inputStyle(q.questionTitle)}
+                        placeholder='Set header text'
+                        onChange={(e) => { props.updateQuestionTitle(q.id, e.target.value) }}
+                        value={q.questionTitle}>
+                    </input>
+                    <button>Logic</button>
+                </div>
+
+                {/* ////////////QUESTION-TEXT///////////////////// */}
+                <div className={s.questionText}>
+                    <input
+                        type='text'
+                        className={inputStyle(q.questionDescription)}
+                        placeholder='No question yet, click here to add'
+                        onChange={(e) => { props.updateQuestionDescription(q.id, e.target.value) }}
+                        value={q.questionDescription}
+                    >
                     </input>
                 </div>
-            </div>
 
-            <div className={s.ansverChoice}>
-                + Add an answer choice
+                {/* ////////////OPTION///////////////////// */}
+                <div className={s.option}>
+                    <div className={s.dots}>⋮⋮</div>
+                    <input type='checkbox'></input>
+                    <label for='text'>r1</label>
+                    <input
+                        type='text'
+                        className={inputStyle(q.questionOption)}
+                        placeholder='Enter option'
+                        onChange={(e) => { props.updateQuestionOption(q.id, e.target.value) }}
+                        value={q.questionOption}
+                    >
+                    </input>
                 </div>
 
-            <div className={s.footer}>
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-        </div>
-    )
-    return (
-        <div className={s.questionbar}>
-            {questionCard}
-        </div >
-    )
-}
+                {/* ////////////ANSVER-CHOISE///////////////////// */}
+                <div className={s.ansverChoice}>
+                    + Add an answer choice
+                </div>
 
-export default QuestionCard
+                <div className={s.footer}>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+            </div>
+        )
+
+        return <div className={s.questionbar}>{questionCard}</div >
+    }
+
+    export default QuestionCard

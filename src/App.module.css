@@ -1,0 +1,45 @@
+.app_wrapper {
+  display: grid;
+  margin: 50px 0 20px 50px;
+  height: 550px;
+  background-color: #ffffff00;
+  grid-template-areas: "sidebar survey questionbar";
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.common_inputs_style {
+  background-color: white;
+  border-left: 1px solid rgb(223, 228, 229);
+  border-top: 1px solid rgb(223, 228, 229);
+  border-right: 1px solid rgb(223, 228, 229);
+  border-radius: 3px;
+  text-overflow: ellipsis;
+  padding-left: 5px;
+  padding-top: 0;
+  padding-bottom: 0;
+  outline: none;
+}
+
+.empty_input {
+  border-bottom: 1px solid red;  
+}
+
+.empty_input_number {
+  color: red;  
+}
+
+input[type='text']::-webkit-input-placeholder {
+  color: lightgray;
+}
+
+input[type="text"]::-moz-placeholder {
+  color: lightgray;
+}
+
+input[type='checkbox'] {
+  width: 20px;
+  height: 20px;
+  margin: 0 10px 0 10px;
+}

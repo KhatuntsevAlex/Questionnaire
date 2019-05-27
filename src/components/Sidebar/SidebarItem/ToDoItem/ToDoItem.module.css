@@ -1,0 +1,12 @@
+.todoItem {    
+    box-sizing: border-box;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 20px;
+    border-bottom: 1px solid rgb(223, 228, 229);
+}
+
+.todoItem:hover {
+    box-shadow: inset 3px 3px 2px 0 lightblue, inset -3px -3px 2px 0 lightblue;
+    cursor: cell;
+}

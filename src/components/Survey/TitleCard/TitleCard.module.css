@@ -1,0 +1,43 @@
+.cardHolder {
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    height: 50px;
+    max-width: 100%;
+    min-width: 100%;
+    border-bottom: 1px solid rgb(223, 228, 229);
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+
+.cardHolder .dots, .cardHolder .cardNumber, .cardHolder .mark {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.cardHolder .dots {
+    font-size: xx-large;
+    font-weight: bold;
+    color: lightgray;
+}
+
+.cardHolder .cardNumber {
+    margin-right: 20px;
+    font-size: larger;
+}
+
+.cardHolder input[type='text'] {
+    flex: 3;
+    margin-right: 0;
+    font-size: larger;
+    padding-left: unset;
+}
+
+.cardHolder .mark {
+    margin-left: 0;
+    font-size: smaller;
+    margin-right: 20px;
+    max-width: 50px;
+}

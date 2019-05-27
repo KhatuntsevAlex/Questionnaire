@@ -1,13 +1,31 @@
 .survey {
-    grid-area: survey;
+    grid-area: survey;       
     background-color: white;
     border-right: 1px solid white;
-    box-shadow: 0 -7px 5px 0 lightgray;
+    border-top: 6px solid lightgray;
+    border-radius: 6px 6px 0 0;   
 }
 
-.cardWrapper {
-    line-height: 50px;
-    max-width: 100%;
+.survey .header {
     height: 50px;
-    border-bottom: 1px solid rgb(223, 228, 229);
+    width: 100%;
+    border-bottom: 1px solid rgb(223, 228, 229);   
+    vertical-align: middle;
+    line-height: 50px;
+    text-align: center;
 }
+
+.survey .cards_wrapper .title_cards {
+    box-sizing: border-box;
+    height: 500px;
+    max-width: 100%;    
+    overflow: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.survey .cards_wrapper .title_cards::-webkit-scrollbar { 
+    width: 0;
+    height: 0;  
+}
+
