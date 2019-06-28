@@ -1,24 +1,15 @@
-import { connect } from 'react-redux';
-import { updateQuestionTitleAC, AddQuestionAC } from '../../redux/reducers/questionCard-reduser';
-import Survey from './Survey';
+import { connect } from 'react-redux'
+import { updateQuestionTitle, addQuestion } from '../../redux/reducers/questionCard-reduser'
+import Survey from './Survey'
 
-let mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
     return {
         questions: state.survey.questions,
-
+        survayId: state.survey.survayId,
     }
 }
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        updateQuestionTitle: (questionId, questionTitle) => {
-            dispatch(updateQuestionTitleAC(questionId, questionTitle))
-        },
-        addQuestion: () => {
-            dispatch(AddQuestionAC())
-        }
-    }
-}
+const mapDispatchToProps = {updateQuestionTitle,addQuestion}
 
 const SurveyContainer = connect(mapStateToProps, mapDispatchToProps)(Survey)
 

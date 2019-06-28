@@ -1,33 +1,46 @@
-import React from 'react';
-import common_s from '../../../App.module.css'
+import React from 'react'
+import { Draggable } from 'react-beautiful-dnd'
+import commonStyle from '../../../App.module.css'
 import s from './TitleCard.module.css'
-import SortableTree from 'react-sortable-tree';
-import 'react-sortable-tree/style.css';
 
+const TitleCard = ({ id, index, questionTitle, updateQuestionTitle }) => {
 
-const TitleCard = (props) => {
+  const inputStyle = value =>
+    !value
+      ? `${commonStyle.common_inputs_style} ${commonStyle.empty_input}`
+      : commonStyle.common_inputs_style
 
-    let inputStyle = value => !value ? common_s.common_inputs_style + ' ' + common_s.empty_input :
-                                       common_s.common_inputs_style
-    
+  const lableStyle = value =>
+    !value
+      ? `${s.cardNumber} ${commonStyle.empty_input_number}`
+      : s.cardNumber
 
-    let lableStyle = value => !value ? s.cardNumber + ' ' + common_s.empty_input_number : s.cardNumber
-                
-    return (
-        <div className={s.cardHolder}>
+  return <>
+    <Draggable draggableId={String(id)} index={index}>
+      {provided => (
+        <div
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+        >
+          <div className={s.cardHolder}>
             <div className={s.dots}>⋮⋮</div>
-            <input type='checkbox'></input>            
-            <label for='text' className={lableStyle(props.questionTitle)}>{props.id}.</label>
+            <input type="checkbox" />
+            <label htmlFor="text" className={lableStyle(questionTitle)}>{id}.</label>
             <input
-                type='text'
-                className={inputStyle(props.questionTitle)}
-                placeholder='Enter title'
-                onChange={(e) => { props.updateQuestionTitle(props.id, e.target.value) }}
-                value={props.questionTitle}>
-            </input>
+              type="text"
+              className={inputStyle(questionTitle)}
+              placeholder="Enter title"
+              onChange={(e) => { updateQuestionTitle(id, e.target.value) }}
+              value={questionTitle}
+            />
             <div className={s.mark}>question</div>
-        </div >
-    )
+          </div >
+        </div>
+      )}
+    </Draggable>
+  </>
+
 }
 
 export default TitleCard

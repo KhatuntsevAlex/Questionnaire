@@ -1,32 +1,27 @@
-import React from 'react';
+import React from 'react'
 import s from './Sidebar.module.css'
-import { NavLink } from "react-router-dom";
-import {DragSource} from 'react-dnd'
-import NavItem from './SidebarItem/NavItem/Navitem';
-import ToDoItem from './SidebarItem/ToDoItem/ToDoItem';
+import NavItem from './SidebarItem/NavItem/Navitem'
+import ToDoItem from './SidebarItem/ToDoItem/ToDoItem'
 
-const Sidebar = (props) => {
-    let navItems = props.navItems.map(n => <NavItem imgSrc={n.imgSrc} />)
+const Sidebar = ({ navItems, todoItems }) => {
+  const nav = navItems.map(n => <NavItem imgSrc={n.imgSrc} />)
+  const todo = todoItems.map(t => <ToDoItem name={t.name} id={t.id} />)
 
-    let todoItems = props.todoItems.map(t => <ToDoItem name={t.name} />)
-
-
-    return (
-        <div className={s.sidebar}>
-            <div className={s.nav}>
-                {navItems}
-            </div>
-            <div className={s.todo}>
-                <div className={s.todoItems}>
-                    Create new
-                </div>                
-                <div>
-                    {todoItems}
+  return (
+    <div className={s.sidebar}>
+      <div className={s.nav}>
+        {nav}
+      </div>
+      <div className={s.todo}>
+        <div className={s.todoItems}>
+          Create new
                 </div>
-            </div>
-
+        <div>
+          {todo}
         </div>
-    )
+      </div>
+    </div>
+  )
 }
 
 export default Sidebar

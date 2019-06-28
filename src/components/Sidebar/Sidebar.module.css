@@ -2,6 +2,7 @@
     grid-area: sidebar;
     background-color: white;
     display: grid;
+    width: 400px;
     grid-template-columns: 0.8fr 4.2fr;
     border-top: 6px solid lightgray;
     border-radius: 6px 6px 0 0;

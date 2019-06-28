@@ -1,9 +1,10 @@
-const ADD_QUESTION = 'ADD_QUESTION';
+const ADD_QUESTION = 'ADD_QUESTION'
 const UPDATE_QUESTION_TITLE = 'UPDATE_QUESTION_TITLE'
 const UPDATE_QUESTION_DESCRIPTION = 'UPDATE_QUESTION_DESCRIPTION'
 const UPDATE_QUESTION_OPTION = 'UPDATE_QUESTION_OPTION'
+const DRAG_HAPPEND = 'DRAG_HAPPEND'
 
-let initialState = {
+const initialState = {
     questions: [
         {
             id: 1,
@@ -24,29 +25,28 @@ let initialState = {
             questionOption: '',
         },
     ],
-
+    survayId: 2,
     questionQuantity: 3,
-    isNoValue: true
+    isNoValue: true,
 
-};
+}
 
 const questionCardReducer = (state = initialState, action) => {
-    
+
     switch (action.type) {
         case ADD_QUESTION:
-            let QuestionId = state.questionQuantity + 1;
             return {
                 ...state,
                 questions: [
                     ...state.questions,
                     {
-                        id: QuestionId,
+                        id: state.questionQuantity + 1,
                         questionTitle: '',
                         questionDescription: '',
                         questionOption: '',
-                    }
+                    },
                 ],
-                questionQuantity: QuestionId
+                questionQuantity: state.questionQuantity + 1,
             }
         case UPDATE_QUESTION_TITLE:
             return {
@@ -54,7 +54,7 @@ const questionCardReducer = (state = initialState, action) => {
                 questions: state.questions.map(q => {
                     if (q.id === action.questionId)
                         return { ...q, questionTitle: action.questionTitle }
-                    return q;
+                    return q
                 }),
             }
         case UPDATE_QUESTION_DESCRIPTION:
@@ -63,7 +63,7 @@ const questionCardReducer = (state = initialState, action) => {
                 questions: state.questions.map(q => {
                     if (q.id === action.questionId)
                         return { ...q, questionDescription: action.questionDescription }
-                    return q;
+                    return q
                 }),
             }
         case UPDATE_QUESTION_OPTION:
@@ -72,23 +72,48 @@ const questionCardReducer = (state = initialState, action) => {
                 questions: state.questions.map(q => {
                     if (q.id === action.questionId)
                         return { ...q, questionOption: action.questionOption }
-                    return q;
+                    return q
                 }),
             }
+        case DRAG_HAPPEND:
+            const newState = { ...state }
+            if (action.droppableIdStart === action.droppableIdEnd) {
+                const question = newState.questions.splice(action.droppableIndexStart, 1)
+                newState.questions.splice(action.droppableIndexEnd, 0, ...question)
+                return newState
+            }
+            return state
         default:
-            return state;
+            return state
     }
-};
+}
 
-export const AddQuestionAC = () => ({ type: ADD_QUESTION })
+export const addQuestion = () => ({ type: ADD_QUESTION })
 
-export const updateQuestionTitleAC = 
-    (questionId, questionTitle) => ({ type: UPDATE_QUESTION_TITLE, questionId, questionTitle })
+export const updateQuestionTitle = (questionId, questionTitle) =>
+({ type: UPDATE_QUESTION_TITLE, questionId, questionTitle })
 
-export const updateQuestionDescriptionAC =
-    (questionId, questionDescription) => ({ type: UPDATE_QUESTION_DESCRIPTION, questionId, questionDescription })
+export const updateQuestionDescription = (questionId, questionDescription) =>
+({ type: UPDATE_QUESTION_DESCRIPTION, questionId, questionDescription })
 
-export const updateQuestionOptionAC =
-    (questionId, questionOption) => ({ type: UPDATE_QUESTION_OPTION, questionId, questionOption })
+export const updateQuestionOption = (questionId, questionOption) =>
+({ type: UPDATE_QUESTION_OPTION, questionId, questionOption })
 
-export default questionCardReducer;
+export const sortTitleCards = (
+    droppableIdStart,
+    droppableIdEnd,
+    droppableIndexStart,
+    droppableIndexEnd,
+    draggableId
+) => (
+        {
+            type: DRAG_HAPPEND,
+            droppableIdStart,
+            droppableIdEnd,
+            droppableIndexStart,
+            droppableIndexEnd,
+            draggableId,
+        }
+    )
+
+export default questionCardReducer

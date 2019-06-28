@@ -1,29 +1,45 @@
-import React from 'react';
+import React from 'react'
+import { Droppable } from 'react-beautiful-dnd'
+import TitleCard from './TitleCard/TitleCard'
+/* import HintCard from './HintCard/HintCard' */
+import SortableTree from 'react-sortable-tree'
+import 'react-sortable-tree/style.css'
 import s from './Survey.module.css'
-import TitleCard from './TitleCard/TitleCard';
-import HintCard from './HintCard/HintCard';
-import { DropTarget } from 'react-dnd';
 
 
-const Survey = (props) => {
+const Survey = ({ questions, updateQuestionTitle, survayId, addQuestion }) => {
 
-    let titleCard = props.questions.map
-        (q => <TitleCard id={q.id}
-            updateQuestionTitle={props.updateQuestionTitle}
-            questionTitle={q.questionTitle} />
-        )
-
-    return (
-        <div className={s.survey}>
-            {/*  <HintCard /> */}
-            <div className={s.cards_wrapper}>
-                <div className={s.header}>
-                    <button onClick={props.addQuestion}>Add question</button>
-                </div>
-                <div className={s.title_cards}>{titleCard}</div>
+  const titleCard = questions.map
+    ((q, index) => (
+      <TitleCard
+        id={q.id}
+        index={index}
+        updateQuestionTitle={updateQuestionTitle}
+        questionTitle={q.questionTitle}
+      />
+    ))
+  return (
+    <Droppable droppableId={String(survayId)}>
+      {(provided) => (
+        <div
+          {...provided.droppableProps}
+          ref={provided.innerRef}
+          className={s.survey}
+        >
+          {/* <HintCard /> */}
+          <div className={s.cards_wrapper}>
+            <div className={s.header}>
+              <button type="button" onClick={addQuestion}>Add question</button>
             </div>
+            <div className={s.title_cards}>{titleCard}</div>
+          </div>
+          {/* provided.placeholder */}
         </div>
-    )
+      )}
+
+    </Droppable>
+  )
 }
+
 
 export default Survey
