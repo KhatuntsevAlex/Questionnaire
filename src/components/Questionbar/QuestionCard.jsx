@@ -12,7 +12,7 @@ const QuestionCard = ({
       : commonStyle.common_inputs_style
 
 
-  const lableStyle = value =>
+  const labelStyle = value =>
     !value
       ? `${s.cardNumber} ${commonStyle.empty_input_number}`
       : s.cardNumber
@@ -22,7 +22,7 @@ const QuestionCard = ({
 
       {/* ////////////HEADER///////////////////// */}
       <div className={s.header}>
-        <div className={lableStyle(q.questionTitle)}>
+        <div className={labelStyle(q.questionTitle)}>
           <span>{q.id}</span>
         </div>
         <input
@@ -60,8 +60,8 @@ const QuestionCard = ({
         />
       </div >
 
-      {/* ////////////ANSVER-CHOISE///////////////////// */}
-      < div className={s.ansverChoice} >
+      {/* ////////////ANSWER-CHOICE///////////////////// */}
+      < div className={s.answerChoice} >
         + Add an answer choice
       </div >
       <div className={s.footer}>
@@ -71,7 +71,7 @@ const QuestionCard = ({
       </div>
     </div >
   )
-  return <div className={s.questionbar}>{questionCard}</div >
+  return <div className={s.questionBar}>{questionCard}</div >
 }
 
 export default QuestionCard

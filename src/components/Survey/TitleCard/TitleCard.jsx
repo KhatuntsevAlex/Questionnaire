@@ -10,7 +10,7 @@ const TitleCard = ({ id, index, questionTitle, updateQuestionTitle }) => {
       ? `${commonStyle.common_inputs_style} ${commonStyle.empty_input}`
       : commonStyle.common_inputs_style
 
-  const lableStyle = value =>
+  const labelStyle = value =>
     !value
       ? `${s.cardNumber} ${commonStyle.empty_input_number}`
       : s.cardNumber
@@ -18,15 +18,16 @@ const TitleCard = ({ id, index, questionTitle, updateQuestionTitle }) => {
   return <>
     <Draggable draggableId={String(id)} index={index}>
       {provided => (
-        <div
-          ref={provided.innerRef}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
+        <div    
+        ref={provided.innerRef}  
+        {...provided.draggableProps}    
         >
           <div className={s.cardHolder}>
-            <div className={s.dots}>⋮⋮</div>
+            <div 
+          
+          {...provided.dragHandleProps} className={s.dots}>⋮⋮</div>
             <input type="checkbox" />
-            <label htmlFor="text" className={lableStyle(questionTitle)}>{id}.</label>
+            <label htmlFor="text" className={labelStyle(questionTitle)}>{id}.</label>
             <input
               type="text"
               className={inputStyle(questionTitle)}

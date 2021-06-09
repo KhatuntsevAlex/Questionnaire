@@ -1,9 +1,6 @@
 import React from 'react'
 import { Droppable } from 'react-beautiful-dnd'
 import TitleCard from './TitleCard/TitleCard'
-/* import HintCard from './HintCard/HintCard' */
-import SortableTree from 'react-sortable-tree'
-import 'react-sortable-tree/style.css'
 import s from './Survey.module.css'
 
 

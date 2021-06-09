@@ -1,6 +1,6 @@
 import React from 'react'
 import s from './Sidebar.module.css'
-import NavItem from './SidebarItem/NavItem/Navitem'
+import NavItem from './SidebarItem/NavItem/NavItem'
 import ToDoItem from './SidebarItem/ToDoItem/ToDoItem'
 
 const Sidebar = ({ navItems, todoItems }) => {

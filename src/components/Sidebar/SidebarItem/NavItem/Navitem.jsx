@@ -1,5 +1,5 @@
 import React from 'react'
-import s from './Navitem.module.css'
+import s from './NavItem.module.css'
 
 const NavItem = ({ imgSrc }) => {
   return (
